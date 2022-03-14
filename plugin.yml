@@ -1,0 +1,31 @@
+name: Smooth Checkout
+description: All the things you need during a Buildkite checkout
+author: https://github.com/predictivehirebuild
+requirements: []
+configuration:
+  properties:
+    skip_checkout:
+      type: boolean
+    repos:
+      type: array
+      items:
+        type: object
+        properties:
+          config:
+            type: array
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                ref:
+                  type: string
+                ssh_key_path:
+                  type: string
+              additionalProperties: false
+            required:
+              - url
+        additionalProperties: false
+      required:
+        - config
+  additionalProperties: false
